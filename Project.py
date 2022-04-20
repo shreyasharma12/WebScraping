@@ -17,28 +17,28 @@ soup = BeautifulSoup(webpage, "html.parser")
 
 #############################################################################################################################################
 
-cryptocurrency_table = soup.find('table')
+cryptocurrency_table = soup.find("table")
 
-cryptocurrency_rows = cryptocurrency_table.findAll('tr')
+cryptocurrency_rows = cryptocurrency_table.findAll("tr")
 print()
 print("Top 5 Cryptocurrency Companies:")
 for x in range(1,6):
-    
+
     td = cryptocurrency_rows[x].findAll("td")
-    number = td[0].text
+    ranking = td[0].text
     name = td[1].text
     current_price = float(td[2].text.strip('$'))
     percent_change = float(td[8].text.strip('%'))
 
     print()
-    print("Currency Ranking:", number)
+    print("Currency Ranking:", ranking)
 
     print("Currency:", name)
 
     currentprice_ = "${:,.2f}".format(current_price)
     print("Current Price:", currentprice_)
 
-    print("% Change:",percent_change, "%")
+    print("% Change:",percent_change,"%")
     following_change = round((current_price)/(1+(percent_change/100)),2)
     following_change_format = "${:,.2f}".format(following_change)
 
