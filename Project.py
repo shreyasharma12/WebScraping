@@ -38,17 +38,17 @@ for x in range(1,6):
     currentprice_ = "${:,.2f}".format(current_price)
     print("Current Price:", currentprice_)
 
-    print("% Change:",percent_change,"%")
+    print("% Change:", percent_change,"%")
     following_change = round((current_price)/(1+(percent_change/100)),2)
     following_change_format = "${:,.2f}".format(following_change)
 
-    print("Price (based on % change):",following_change_format)
+    print("Price (based on % change):", following_change_format)
 
 ##############################################################################################################################################
 
     AccountSID = "ACe837848febdaeecb690ac3e967e17013"
     AuthToken = "e26ca57be5e1ecfa0145db35351d2671"
-    client = Client(AccountSID,AuthToken)
+    client = Client(AccountSID, AuthToken)
     TwilioNumber = "+13156653626"
     mycellphone = "+12816610425"
 
@@ -58,4 +58,4 @@ for x in range(1,6):
         Bitcoin_phonetext = client.messages.create(to = mycellphone, from_= TwilioNumber, body = "Bitcoin Cryptocurrency price is below $40,000.")
 
     if "Ethereum" in name and current_price < 3000: 
-        Ethereum_phonetext = client.messages.create(to= mycellphone, from_= TwilioNumber, body = "Ethereum Cryptocurrency price is below $3,000.")
+        Ethereum_phonetext = client.messages.create(to = mycellphone, from_= TwilioNumber, body = "Ethereum Cryptocurrency price is below $3,000.")
